@@ -1,0 +1,28 @@
+version: "3.9"
+
+services:
+ backend:
+  build:
+   context: ./backend
+   dockerfile: Dockerfile
+  ports:
+   - 5001:5000
+  networks:
+   - pizzaria-network
+ frontend:
+  build: 
+   context: ./frontend
+   dockerfile: Dockerfile
+   args:
+    NODE_ENV: production
+  ports:
+   - 8080:80
+  networks:
+   - pizzaria-network
+  depends_on:
+   - backend
+
+
+networks:
+ pizzaria-network:
+  driver: bridge
