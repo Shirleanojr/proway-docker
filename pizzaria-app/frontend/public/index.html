@@ -163,7 +163,7 @@
         // Function to fetch pizzas from the backend API
         async function fetchPizzas() {
             try {
-                const response = await fetch('http://localhost:5001/api/pizzas');
+                const response = await fetch('api/pizzas');
                 if (!response.ok) {
                     throw new Error('Falha ao carregar o cardápio. Por favor, tente novamente mais tarde.');
                 }
